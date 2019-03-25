@@ -1,9 +1,9 @@
 #include <iostream>
-#include <sys/socket.h> // anable using socks
-#include <netinet/in.h>  // anable using structsockaddr_in
-#include <string.h> // anable memset()
-#include <arpa/inet.h> // anable inet_pton
-#include <istream> // anable read
+#include <sys/socket.h> // enable using socks
+#include <netinet/in.h>  // enable using structsockaddr_in
+#include <string.h> // enable using memset()
+#include <arpa/inet.h> // enable using inet_pton
+\
 #define PORT 2399
 using namespace std;
 
