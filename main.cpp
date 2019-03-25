@@ -10,21 +10,21 @@ using namespace std;
 int main()
 {
     cout << "Hello World!" << endl;
-    int sockfd = socket(AF_INET,SOCK_STREAM,0);
-    int valread = 0;
+    int sock_fd = socket(AF_INET,SOCK_STREAM,0);
+
     struct sockaddr_in address; // adres
     struct sockaddr_in serv_addr; // server address
     char msg []= "Hello Server";
-    const char *msg_ptr = msg;
-    char buffer[1024] = {0};
+
+
 
     memset(&serv_addr,'0',sizeof(serv_addr));
 
     serv_addr.sin_family = AF_INET; // IPv4 protocol
     serv_addr.sin_port = htons(PORT); // htons convert PORT to network order
     inet_pton(AF_INET,"127.0.0.1",&serv_addr.sin_addr); // convert do adres to binary
-    connect(sockfd,(struct sockaddr *)&serv_addr, sizeof(serv_addr));
-    send(sockfd,msg,strlen(msg),0);
+    connect(sock_fd,(struct sockaddr *)&serv_addr, sizeof(serv_addr));
+    send(sock_fd,msg,strlen(msg),0);
     cout<< "Messange send"<<endl;
 
 
