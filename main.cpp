@@ -26,6 +26,6 @@ int main()
         
     cout<< "Messange send"<<endl;
      shutdown(sock_fd,-2);
-    cout<<"Connection sutted down"<<endl;
+    cout<<"Connection shutted down"<<endl;
     return 0;
 }
