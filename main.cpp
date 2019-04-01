@@ -1,4 +1,4 @@
-#include <boost/program_options.hpp>
+#include <boost/program_options.hpp> // enable using boost lib
 #include <iostream>
 #include <sys/socket.h> // enable using socks
 #include <netinet/in.h>  // enable using structsockaddr_in
@@ -19,7 +19,7 @@ int main()
     ;
 
     po::variables_map vm;
-    po::store(po::parse_command_line(ac, av, desc), vm);
+//    po::store(po::parse_command_line(ac, av, desc), vm);
     po::notify(vm);
 
     if (vm.count("help")) {
