@@ -1,21 +1,25 @@
-#include <boost/program_options.hpp>
-#include <iostream>
+
+
 #include <sys/socket.h> // enable using socks
 #include <netinet/in.h>  // enable using structsockaddr_in
 #include <string.h> // enable using memset()
 #include <arpa/inet.h> // enable using inet_pton
 \
-#define PORT 2399
-using namespace std;
+
+#include <boost/program_options.hpp> //enable usingboost lib
 namespace po = boost::program_options;
 
-int main()
+#include <iostream>
+using namespace std;
+
+int main(int ac, char* av[])
 {
     cout << "Hello World!" << endl;
     po::options_description desc("Allowed options");
     desc.add_options()
         ("help", "produce help message")
-        ("compression", po::value<int>(), "set compression level")
+        ("port", po::value<int>(), "set servers port")
+        
     ;
 
     po::variables_map vm;
@@ -27,12 +31,14 @@ int main()
         return 1;
     }
 
-    if (vm.count("compression")) {
-        cout << "Compression level was set to "
-     << vm["compression"].as<int>() << ".\n";
+    if (vm.count("port")) {
+        cout << "Server's port set to "
+     << vm["port"].as<int>() << ".\n";
+        int port = vm["port"].as<int>();
     } else {
-        cout << "Compression level was not set.\n";
+        cout << "Server's port was not set.\n";
     }
+
    /* struct sockaddr_in serv_addr; // server address
     memset(&serv_addr,'0',sizeof(serv_addr));
     serv_addr.sin_family = AF_INET; // IPv4 protocol
