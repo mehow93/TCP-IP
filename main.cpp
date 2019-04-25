@@ -60,7 +60,8 @@ int main(int ac, char* av[])
     connect(sock_fd,(struct sockaddr *)&serv_addr, sizeof(serv_addr));
     char cstry[msg_txt.size()+1]; // making space for converting string to char
     strcpy(cstry, msg_txt.c_str()); //copy
-   for(int i=0; i<n; i++)
+
+   for(int i=0; i<n; i++)// sending
     send(sock_fd,cstry,strlen(cstry),0);
 
     cout<< "Messange send"<<endl;
