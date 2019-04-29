@@ -19,8 +19,8 @@ int main(int ac, char* av[])
     desc.add_options()
             ("help", "produce help message")
             ("port", po::value<int>(), "set servers port")
-            ("msg",  po::value<string>(), "set txt messange")
-            ("n",    po::value<int>(), "set quantity of messanges")
+            ("msg",  po::value<string>(), "set txt messenge")
+            ("n",    po::value<int>(), "set quantity of messenges")
 
             ;
 
@@ -43,12 +43,12 @@ int main(int ac, char* av[])
            << vm["msg"].as<string>() << ".\n";
     }
     if (vm.count("n")){
-        cout<<"Quantity of messanges: "
+        cout<<"Quantity of messenges: "
            << vm["n"].as<int>() << ".\n";
     }
     int port_num = vm["port"].as<int>(); // creating variable for port
-    string msg_txt = vm["msg"].as<string>(); // creating txt of messange
-    int n = vm["n"].as<int>(); // Quantity of messanges
+    string msg_txt = vm["msg"].as<string>(); // creating txt of messenge
+    int n = vm["n"].as<int>(); // Quantity of messenges
 
     struct sockaddr_in serv_addr; // server address
     memset(&serv_addr,'0',sizeof(serv_addr));
@@ -62,9 +62,9 @@ int main(int ac, char* av[])
     strcpy(cstry, msg_txt.c_str()); //copy
 
    for(int i=0; i<n; i++)// sending
-    send(sock_fd,cstry,strlen(cstry),0);
+       send(sock_fd,cstry,strlen(cstry),0);
 
-    cout<< "Messange send"<<endl;
+    cout<< "Messenge send"<<endl;
     shutdown(sock_fd,-2);
     cout<<"Connection shutted down"<<endl;
     return 0;
